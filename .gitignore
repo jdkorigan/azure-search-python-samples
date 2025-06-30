@@ -89,6 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*.env
 
 # Spyder project settings
 .spyderproject
@@ -105,3 +106,34 @@ venv.bak/
 
 # Azurite files for local environment
 __azurite_*
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Azure specific
+*.publishsettings
+*.pubxml
+*.pubxml.user
+local.settings.json
+appsettings.json
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
