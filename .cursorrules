@@ -1,0 +1,116 @@
+# Cursor Rules for Azure AI Search Samples Project
+
+## Project Overview
+This is a collection of Azure AI Search Python samples demonstrating various search capabilities including:
+- Agentic retrieval
+- Vector search
+- Semantic search
+- RAG (Retrieval-Augmented Generation)
+- Document permissions
+- Bulk operations
+
+## Code Style and Standards
+
+### Python Conventions
+- Use Python 3.8+ syntax and features
+- Follow PEP 8 style guidelines
+- Use type hints where appropriate
+- Prefer f-strings over .format() or %
+- Use descriptive variable names
+- Add docstrings to functions and classes
+
+### Azure SDK Patterns
+- Use the latest Azure SDK for Python
+- Follow Azure naming conventions
+- Use async/await patterns when appropriate
+- Handle Azure exceptions properly
+- Use environment variables for configuration
+
+### Jupyter Notebook Guidelines
+- Keep cells focused and single-purpose
+- Add markdown explanations before code cells
+- Use clear variable names
+- Include error handling in cells
+- Add comments explaining complex operations
+
+## Project Structure
+```
+azure-search-python-samples/
+├── Quickstart/                    # Basic search operations
+├── Quickstart-Agentic-Retrieval/  # Agentic retrieval examples
+├── Quickstart-RAG/               # RAG implementation
+├── Quickstart-Vector-Search/     # Vector search examples
+├── Tutorial-RAG/                 # Comprehensive RAG tutorial
+└── [other sample directories]
+```
+
+## AI Assistant Guidelines
+
+### When Helping with Code:
+1. **Always check existing patterns** - Look at similar examples in the project
+2. **Use Azure SDK best practices** - Follow the patterns established in existing samples
+3. **Include proper error handling** - Azure operations can fail, handle exceptions
+4. **Add environment variable support** - Use .env files for configuration
+5. **Include authentication examples** - Show both managed identity and API key approaches
+
+### When Creating New Samples:
+1. **Follow the existing structure** - Use similar file organization
+2. **Include requirements.txt** - List all dependencies
+3. **Add sample.env** - Provide environment variable templates
+4. **Write clear README** - Explain prerequisites and setup
+5. **Use consistent naming** - Follow the established naming conventions
+
+### Security Considerations:
+1. **Never hardcode secrets** - Always use environment variables
+2. **Include authentication examples** - Show secure credential management
+3. **Document permissions** - Explain required Azure roles
+4. **Use managed identities** - Prefer over API keys when possible
+
+## Common Patterns to Follow
+
+### Environment Setup
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+endpoint = os.environ["AZURE_SEARCH_ENDPOINT"]
+```
+
+### Authentication
+```python
+from azure.identity import DefaultAzureCredential
+credential = DefaultAzureCredential()
+```
+
+### Error Handling
+```python
+try:
+    # Azure operation
+    result = client.operation()
+except Exception as e:
+    print(f"Error: {e}")
+    # Handle gracefully
+```
+
+## What to Avoid
+- Hardcoding connection strings or API keys
+- Using deprecated Azure SDK methods
+- Creating overly complex examples
+- Skipping error handling
+- Using inconsistent naming conventions
+
+## Focus Areas
+When working on this project, prioritize:
+1. **Clarity** - Code should be easy to understand
+2. **Completeness** - Include all necessary setup steps
+3. **Security** - Follow Azure security best practices
+4. **Maintainability** - Code should be easy to update
+5. **Documentation** - Explain what and why, not just how
+
+## Testing Guidelines
+- Test with sample data when possible
+- Include cleanup steps in examples
+- Verify environment variables are set
+- Test authentication flows
+- Validate search results 

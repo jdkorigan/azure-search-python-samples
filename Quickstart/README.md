@@ -31,16 +31,39 @@ This sample is a Jupyter Python3 .ipynb file to perform the actions against the 
 
 1. Extract contents if the download is a zip file. Make sure the files are read-write.
 
+1. Install the required dependencies:
+   ```bash
+   pip install azure-search-documents python-dotenv
+   ```
+
+## Configure your environment
+
+1. **Option 1: Use the setup script (Recommended)**
+   ```bash
+   cd Quickstart
+   python setup_environment.py
+   ```
+   This will create a `.env` file from `sample.env` and guide you through the configuration.
+
+1. **Option 2: Manual setup**
+   - Copy `sample.env` to `.env`
+   - Edit `.env` with your actual Azure Search service details:
+     - `SEARCH-ENDPOINT`: Your Azure Search service endpoint (e.g., `https://your-service-name.search.windows.net`)
+     - `SEARCH-API-KEY`: Your Azure Search service admin API key
+
 ## Run the sample
 
-1. Open the azure-search-quickstart.ipynb file in Visual Studio Code.
+1. Open the `azure-search-quickstart.ipynb` file in Visual Studio Code or Jupyter.
 
-1. Set the service endpoint and API key for your search service:
+1. Run each cell in sequence. The notebook will automatically load your environment variables from the `.env` file.
 
-   * service_name = "YOUR-SEARCH-SERVICE-NAME"
-   * admin_key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
+## Troubleshooting
 
-1. Run each step in sequence.
+If you encounter connection errors:
+- Verify your Azure Search service is running
+- Check that your endpoint URL is correct (should end with `.search.windows.net`)
+- Ensure your API key is valid and has admin permissions
+- Run `python setup_environment.py` to validate your configuration
 
 ## Next steps
 
