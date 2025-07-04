@@ -1,4 +1,7 @@
+import os
 import sys
+# Change working directory to the script's directory
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 import json
 import requests
 import pandas as pd
@@ -15,10 +18,15 @@ from azure.search.documents.indexes.models import (
     SimpleField,
     SearchableField,
 )
+from dotenv import load_dotenv
+load_dotenv()
+print(f"AZURE_SEARCH_SERVICE_NAME: {os.environ.get('AZURE_SEARCH_SERVICE_NAME')}")
+api_key = os.environ.get('AZURE_SEARCH_ADMIN_API_KEY')
+print(f"AZURE_SEARCH_ADMIN_API_KEY: {'*' * len(api_key) if api_key else None}")
 
 # Get the service name (short name) and admin API key from the environment
-service_name = "YOUR-SEARCH-SERVICE-NAME"
-key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
+service_name = os.environ.get("AZURE_SEARCH_SERVICE_NAME")
+key = os.environ.get("AZURE_SEARCH_ADMIN_API_KEY")
 endpoint = "https://{}.search.windows.net/".format(service_name)
 
 # Give your index a name
